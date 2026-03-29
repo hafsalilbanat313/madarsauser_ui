@@ -239,7 +239,7 @@ formData.append("lastMarksheet", files.lastMarksheet);
 
     // ================= API CALL =================
     const res = await axios.post(
-      "http://localhost:3000/api/student-form/submit",
+      "https://madarsa-backend-pro.onrender.com/api/student-form/submit",
       formData,
       {
         headers: {
@@ -263,7 +263,7 @@ useEffect(() => {
   const checkStatus = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/student-form/my-form",
+        "https://madarsa-backend-pro.onrender.com/api/student-form/my-form",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

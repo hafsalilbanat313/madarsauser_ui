@@ -7,7 +7,7 @@ export default function SubmittedForm() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:3000/api/student-form/download-pdf",
+        "https://madarsa-backend-pro.onrender.com/api/student-form/download-pdf",
         {
           headers: {
             Authorization: `Bearer ${token}`,

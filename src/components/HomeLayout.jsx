@@ -3,10 +3,13 @@ import Welcome from "./Welcome";
 import SocialSidebar from "./SocialSidebar";
 import GalleryShowcase from "./GalleryShowcase";
 import GuestsIjlasGallery from "./GuestsIjlasGallery";
+import AdmissionBanner from "../utils/AdmissionBanner";
 
 const HomeLayout = () => {
+  
   return (
     <>
+     <AdmissionBanner />
       <Home />
       <SocialSidebar />
       <Welcome />

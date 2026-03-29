@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import NavItems from "./NavItems";
-import Translator from "./Translator"; // ⬅ import the translator
+import Translator from "./Translator";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -12,53 +12,75 @@ const Header = () => {
   const [announcement, setAnnouncement] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
-  
-useEffect(() => {
-  const checkAuth = () => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+
+  // ✅ AUTH CHECK
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    };
+
+    checkAuth();
+
+    window.addEventListener("authChange", checkAuth);
+
+    return () => {
+      window.removeEventListener("authChange", checkAuth);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.dispatchEvent(new Event("authChange"));
+    navigate("/login");
   };
 
-  checkAuth(); // initial check
+  // ✅ 🔥 ANNOUNCEMENT API CALL
+  useEffect(() => {
+    const fetchAnnouncement = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/announcement");
+        const data = await res.json();
 
-  // 🔥 listen for login/logout
-  window.addEventListener("authChange", checkAuth);
+        if (data.success && data.data) {
+          setAnnouncement(data.data);
+        } else {
+          setAnnouncement(null);
+        }
 
-  return () => {
-    window.removeEventListener("authChange", checkAuth);
-  };
-}, []);
-const handleLogout = () => {
-  localStorage.removeItem("token");
+      } catch (err) {
+        setAnnouncement(null);
+      }
+    };
 
-  window.dispatchEvent(new Event("authChange")); // 🔥
-
-  navigate("/login");
-};
-
+    fetchAnnouncement();
+  }, []);
 
   return (
     <>
       {/* Scrolling Notice */}
       <div className="fixed top-0 left-0 w-full z-[100] bg-gradient-to-tr from-blue-900 to-blue-700 text-white font-extrabold py-2 shadow-lg">
-      <div className="overflow-hidden whitespace-nowrap">
-  <div className="animate-marquee inline-block pl-[100%] text-sm font-semibold text-white">
-    <span className="bg-red-600 text-yellow-300 rounded-2xl px-2  mr-3">
-      🚀 Important
-    </span>
-    {announcement?.message ? announcement.message : "Welcome to jamia hafsa lil banat"}
-  </div>
-</div>
+        <div className="overflow-hidden whitespace-nowrap">
+          <div className="animate-marquee inline-block pl-[100%] text-sm font-semibold text-white">
+            <span className="bg-red-600 text-yellow-300 rounded-2xl px-2  mr-3">
+              🚀 Important
+            </span>
+            {announcement?.message
+              ? announcement.message
+              : "Welcome to jamia hafsa lil banat"}
+          </div>
+        </div>
       </div>
 
       {/* Header */}
       <div className="fixed top-8 left-0 w-full z-50 backdrop-blur-md bg-white/30 shadow-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
+          
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img
@@ -70,45 +92,48 @@ const handleLogout = () => {
 
           {/* Title */}
           <div className="text-center flex-1">
-           <span className="text-base sm:text-sm md:text-lg font-bold text-blue-900" style={{ fontFamily: "Cinzel, serif" }}>
+            <span className="text-base sm:text-sm md:text-lg font-bold text-blue-900" style={{ fontFamily: "Cinzel, serif" }}>
               Jamia Hafsa lil Banat,Ratupura
             </span>
           </div>
-             <div>
-   <button
-  onClick={() => {
-    if (isLoggedIn) {
-      handleLogout();
-    } else {
-      navigate("/login");
-    }
-  }}
-  className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 mr-2 rounded-full text-sm shadow-lg transition backdrop-blur-md bg-opacity-80"
-  style={{ fontFamily: "Poppins, sans-serif" }}
->
-  {isLoggedIn ? "Logout" : "Login"}
-</button>
-    </div>
+
+          <div>
+            <button
+              onClick={() => {
+                if (isLoggedIn) {
+                  handleLogout();
+                } else {
+                  navigate("/login");
+                }
+              }}
+              className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 mr-2 rounded-full text-sm shadow-lg transition backdrop-blur-md bg-opacity-80"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              {isLoggedIn ? "Logout" : "Login"}
+            </button>
+          </div>
 
           {/* Right Section */}
-         <div className="flex items-center space-x-2">
-  {/* 🔁 Donate Button */}
-  <Link
-    to="/bankdetails"
-    className="bg-blue-700 hover:bg-blue-800 text-white px-2 py-1 rounded-full text-sm shadow-lg transition backdrop-blur-md bg-opacity-80"
-   style={{fontFamily:"Poppins"}}>
-    Donate
-  </Link>
-   <div id="google_translate_element" className="google-translate"> 
+          <div className="flex items-center space-x-2">
 
-  {/* 🌐 Translator - Always visible */}
-  <Translator />
-</div>
-  {/* Mobile Menu Button */}
-  <button onClick={() => setIsOpen(!isOpen)} className="text-blue-900 md:hidden">
-    {isOpen ? <X size={26} /> : <Menu size={26} />}
-  </button>
-</div>
+            {/* Donate Button */}
+            <Link
+              to="/bankdetails"
+              className="bg-blue-700 hover:bg-blue-800 text-white px-2 py-1 rounded-full text-sm shadow-lg transition backdrop-blur-md bg-opacity-80"
+              style={{fontFamily:"Poppins"}}>
+              Donate
+            </Link>
+
+            <div id="google_translate_element" className="google-translate"> 
+              <Translator />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-blue-900 md:hidden">
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+
+          </div>
 
         </div>
       </div>
@@ -116,6 +141,7 @@ const handleLogout = () => {
       {/* Navigation Menu */}
       <div className="fixed top-24 left-0 w-full z-40 backdrop-blur-md bg-white/30 shadow-sm border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
           {/* Desktop Nav */}
           <nav className="hidden md:flex justify-center space-x-4 text-sm font-medium text-blue-900" style={{fontFamily:"Poppins"}}>
             {NavItems.map((item, index) => (
@@ -129,6 +155,7 @@ const handleLogout = () => {
                       {item.label["en"]}
                       <ChevronDown size={16} />
                     </button>
+
                     <div className="absolute top-full left-0  w-56 bg-white/80 backdrop-blur-md shadow-lg border border-gray-200 rounded hidden group-hover:block z-50">
                       <ul className="flex flex-col py-2">
                         {item.children.map((child, cIndex) => (
@@ -172,6 +199,7 @@ const handleLogout = () => {
                         {item.label["en"]}
                         <ChevronDown size={16} className="ml-2" />
                       </button>
+
                       {openDropdown === index && (
                         <div className="bg-white/80 backdrop-blur-md">
                           <ul className="flex flex-col py-1">
@@ -209,6 +237,7 @@ const handleLogout = () => {
               ))}
             </nav>
           )}
+
         </div>
       </div>
 

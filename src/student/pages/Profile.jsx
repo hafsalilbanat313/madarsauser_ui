@@ -15,7 +15,7 @@ export default function StudentProfile() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/auth/user/profile", {
+    fetch("https://madarsa-backend-pro.onrender.com/auth/user/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

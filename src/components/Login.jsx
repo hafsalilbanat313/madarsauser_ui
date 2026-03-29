@@ -39,7 +39,7 @@ export default function LoginPage() {
       // 🔐 API LOGIN
       // Replace URL with your backend endpoint
       const res = await axios.post(
-        "http://localhost:3000/auth/user/login",
+        "https://madarsa-backend-pro.onrender.com/auth/user/login",
         { email, password },
         { withCredentials: true }
       );

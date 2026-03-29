@@ -52,7 +52,7 @@ export default function SignupPage() {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:3000/auth/email/send-email-otp",
+        "https://madarsa-backend-pro.onrender.com/auth/email/send-email-otp",
         { email: form.email },
         { withCredentials: true }
       );
@@ -70,7 +70,7 @@ export default function SignupPage() {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:3000/auth/email/verify-email-otp",
+        "https://madarsa-backend-pro.onrender.com/auth/email/verify-email-otp",
         { email: form.email, otp: emailOtp },
         { withCredentials: true }
       );
@@ -98,7 +98,7 @@ export default function SignupPage() {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:3000/auth/user/signup",
+        "https://madarsa-backend-pro.onrender.com/auth/user/signup",
         {
           firstName: form.firstName,
           lastName: form.lastName,

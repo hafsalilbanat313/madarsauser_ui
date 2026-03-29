@@ -1,8 +1,8 @@
 export default function Results() {
   const results = [
-    { exam: "Admission Test", score: "Passed" },
-    { exam: "Class 1st Mid Term", score: "78%" },
-    { exam: "Class 1st Final", score: "82%" },
+    { exam: "Admission Test", score: "Result not declared" },
+    { exam: "Your Rank", score: "-" },
+    { exam: "Selecteion status", score: "-" },
   ];
 
   return (

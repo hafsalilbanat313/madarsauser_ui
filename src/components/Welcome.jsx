@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 const NewBadge = () => {
   return (
     <div className="flex flex-col items-center mr-2">
-       
       <img
         src="/newgiff.gif"
         alt="new"
@@ -15,6 +14,33 @@ const NewBadge = () => {
 
 const Welcome = () => {
   const navigate = useNavigate();
+
+  // ✅ CATEGORY BASED PDF OPEN
+  const openPDF = async (category) => {
+    const confirmDownload = window.confirm(
+      "Are you sure you want to download/view this PDF?"
+    );
+
+    if (!confirmDownload) return;
+
+    try {
+      const url = `https://madarsa-backend-pro.onrender.com/api/notices/category/${category}`;
+
+      // 🔍 check API first
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        alert("No content found!");
+        return;
+      }
+
+      // ✅ open PDF
+      window.open(url, "_blank");
+
+    } catch (err) {
+      alert("No content found!");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 pt-10 px-4">
@@ -72,11 +98,13 @@ const Welcome = () => {
               Featured
             </div>
             <ul className="p-4 text-sm space-y-3">
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("FEATURED")}>
                 <NewBadge />
                 <span>► Syllabus of Admission test</span>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("FEATURED")}>
                 <NewBadge />
                 <span>► Admission Notices</span>
               </li>
@@ -89,11 +117,13 @@ const Welcome = () => {
               Admission
             </div>
             <ul className="p-4 text-sm space-y-3">
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("ADMISSION_LIST")}>
                 <NewBadge />
                 <span>► Admission List (Selected)</span>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("ADMISSION_RESULT")}>
                 <NewBadge />
                 <span>► Result of Admission Test</span>
               </li>
@@ -113,32 +143,29 @@ const Welcome = () => {
 
           <div className="p-4 space-y-4 text-sm">
 
-            <div className="flex items-start">
+            <div className="flex items-start cursor-pointer"
+                 onClick={() => openPDF("NEWS")}>
               <NewBadge />
-              <span className="text-gray-600 mr-4">
-                18-05-2024
-              </span>
-              <span className="text-blue-700 hover:underline cursor-pointer" style={{fontFamily:"Poppins"}}>
+              <span className="text-gray-600 mr-4">18-05-2024</span>
+              <span className="text-blue-700 hover:underline cursor-pointer">
                 Corrigendum of Eligibility Criteria
               </span>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex items-start cursor-pointer"
+                 onClick={() => openPDF("NEWS")}>
               <NewBadge />
-              <span className="text-gray-600 mr-4">
-                26-03-2024
-              </span>
-              <span className="text-blue-700 hover:underline cursor-pointer" style={{fontFamily:"Poppins"}}>
+              <span className="text-gray-600 mr-4">26-03-2024</span>
+              <span className="text-blue-700 hover:underline cursor-pointer">
                 Faculty Redressal Form for Semester
               </span>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex items-start cursor-pointer"
+                 onClick={() => openPDF("NEWS")}>
               <NewBadge />
-              <span className="text-gray-600 mr-4">
-                10-02-2024
-              </span>
-              <span className="text-blue-700 hover:underline cursor-pointer" style={{fontFamily:"Poppins"}}>
+              <span className="text-gray-600 mr-4">10-02-2024</span>
+              <span className="text-blue-700 hover:underline cursor-pointer">
                 General Notice regarding Holidays
               </span>
             </div>
@@ -151,30 +178,33 @@ const Welcome = () => {
 
           {/* Examinations */}
           <div className="border border-gray-300 bg-white">
-            <div className="bg-blue-600 text-white font-semibold px-4 py-2" style={{fontFamily:"Poppins"}}>
+            <div className="bg-blue-600 text-white font-semibold px-4 py-2">
               Examinations
             </div>
             <ul className="p-4 text-sm space-y-3">
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("EXAM_CLASS")}>
                 <NewBadge />
-                <span style={{fontFamily:"Poppins"}}>► Class examination info</span>
+                <span>► Class examination info</span>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("EXAM_INTERNAL")}>
                 <NewBadge />
-                <span style={{fontFamily:"Poppins"}}>► Internal exam result</span>
+                <span>► Internal exam result</span>
               </li>
             </ul>
           </div>
 
           {/* Notices */}
           <div className="border border-gray-300 bg-white">
-            <div className="bg-blue-600 text-white font-semibold px-4 py-2" style={{fontFamily:"Poppins"}}>
+            <div className="bg-blue-600 text-white font-semibold px-4 py-2">
               Notices and Updates
             </div>
             <ul className="p-4 text-sm space-y-3">
-              <li className="flex items-start">
+              <li className="flex items-start cursor-pointer"
+                  onClick={() => openPDF("NOTICE_GENERAL")}>
                 <NewBadge />
-                <span style={{fontFamily:"Poppins"}}>► General notices like holiday etc</span>
+                <span>► General notices like holiday etc</span>
               </li>
             </ul>
           </div>
