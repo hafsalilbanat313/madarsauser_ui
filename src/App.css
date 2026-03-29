@@ -1,0 +1,70 @@
+html, body {
+  overflow-x: hidden;
+}
+
+/* ===== GOOGLE TRANSLATE COMPLETE FIX ===== */
+
+/* Hide top banner completely */
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Prevent body jump */
+body {
+  position: static !important;
+  top: 0 !important;
+}
+
+/* Translate container */
+.google-translate {
+  max-width: 140px;
+  overflow: hidden;
+}
+
+/* Google widget reset */
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+/* Dropdown select styling */
+.goog-te-combo {
+  width: 140px !important;
+  height: 32px !important;
+  padding: 4px 8px !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
+  border: 1px solid #ddd !important;
+  background: #fff !important;
+  cursor: pointer;
+}
+
+/* Remove Google icon & extra text */
+.goog-te-gadget span,
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Fix mobile overflow */
+@media (max-width: 768px) {
+  .google-translate {
+    max-width: 120px;
+  }
+
+  .goog-te-combo {
+    width: 120px !important;
+    font-size: 12px !important;
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
