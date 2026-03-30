@@ -31,7 +31,7 @@ const CraftSkills = () => {
           {/* Card 2 */}
           <div className="bg-white/70 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/30 flex flex-col items-center text-center">
             <img
-              src="https://images.unsplash.com/photo-1684259499086-93cb3e555803?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFpbG9yaW5nJTIwY2xhc3MlMjBnaXJsc3xlbnwwfHwwfHx8MA%3D%3D"
+              src="https://images.unsplash.com/photo-1619909490011-5e4b5b6b8547?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRhaWxvcnxlbnwwfDB8MHx8fDA%3D"
               alt="Tailoring Class"
               className="w-full h-48 object-cover rounded-lg mb-4"
             />

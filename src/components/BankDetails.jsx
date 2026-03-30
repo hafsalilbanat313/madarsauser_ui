@@ -48,9 +48,9 @@ const BankDetails = () => {
             <p>
               <strong>Bank Name:</strong> PUNJAB NATIONAL BANK
             </p>
-            <p>
+            {/* <p>
               <strong>Bank Address:</strong> MOHAMMADPUR KHUDALIA,SIMBHAOLI,HAPUR,U.P 245207.
-            </p>
+            </p> */}
             <p>
               <strong>Account Number:</strong> 2042000100189834
             </p>

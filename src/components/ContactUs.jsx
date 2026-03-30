@@ -34,6 +34,7 @@ const ContactUs = () => {
             <h4 className="font-semibold text-blue-800 mb-1">Mohd Mursaleen</h4>
             <p>
               Ratupura<br />
+              er.mursaleen.aktu@gmail.com <br />
               Hapur, U.P 245207 <br />
               📞 M: +91 9756796893
             </p>

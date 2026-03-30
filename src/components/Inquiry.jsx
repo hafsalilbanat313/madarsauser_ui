@@ -21,14 +21,28 @@ const Inquiry = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
-    if (!formData.email.includes("@")) newErrors.email = "Valid email is required.";
-    if (!formData.mobile || formData.mobile.length !== 10) newErrors.mobile = "Valid 10-digit mobile no required.";
-    if (!formData.feedback.trim()) newErrors.feedback = "Feedback is required.";
-    return newErrors;
-  };
+const validate = () => {
+  const newErrors = {};
+
+  if (!formData.firstName.trim())
+    newErrors.firstName = "First name is required.";
+
+  // if (!formData.email.includes("@"))
+  //   newErrors.email = "Valid email is required.";
+
+  if (!formData.mobile || formData.mobile.length !== 10)
+    newErrors.mobile = "Valid 10-digit mobile no required.";
+
+  // ✅ Aadhar validation (mandatory)
+  if (!formData.aadhar || !/^\d{12}$/.test(formData.aadhar)) {
+    newErrors.aadhar = "Valid 12-digit Aadhar number is required.";
+  }
+
+  if (!formData.feedback.trim())
+    newErrors.feedback = "Feedback is required.";
+
+  return newErrors;
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,19 +110,31 @@ const Inquiry = () => {
               className="w-full p-3 rounded bg-white/60 shadow-sm border border-gray-300 text-sm"
               placeholder="example@gmail.com"
             />
-            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+            {/* {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>} */}
           </div>
           <div>
-            <label className="text-sm font-semibold text-blue-800">Aadhar Number</label>
-            <input
-              type="text"
-              name="aadhar"
-              value={formData.aadhar}
-              onChange={handleChange}
-              className="w-full p-3 rounded bg-white/60 shadow-sm border border-gray-300 text-sm"
-              placeholder="xxxx xxxx xxxx"
-            />
-          </div>
+  <label className="text-sm font-semibold text-blue-800">
+    Aadhar Number*
+  </label>
+
+  <input
+    type="text"
+    name="aadhar"
+    value={formData.aadhar}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, "");
+      setFormData({ ...formData, aadhar: value });
+    }}
+    maxLength={12}
+    className="w-full p-3 rounded bg-white/60 shadow-sm border border-gray-300 text-sm"
+    placeholder="Enter 12-digit Aadhar"
+  />
+
+  {/* ✅ YE MISSING THA */}
+  {errors.aadhar && (
+    <p className="text-red-500 text-xs mt-1">{errors.aadhar}</p>
+  )}
+</div>
         </div>
 
         {/* Row 3: Mobile, Phone */}

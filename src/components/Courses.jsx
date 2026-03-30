@@ -60,7 +60,7 @@ const courses = [
  {
     title: "PRIMARY 1 ",
     subjects: [
-      "PARA AMM ",
+      "PARA AMMA ",
       "URDU",
       "DEENIYAT",
       "HINDI",

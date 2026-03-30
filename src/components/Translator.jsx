@@ -1,42 +1,33 @@
-import { useEffect, useRef } from "react";
-import "../App.css";
+import { useEffect } from "react";
 
 const Translator = () => {
-  const translateRef = useRef(null);
-
   useEffect(() => {
-    // Only define the callback once
-    window.googleTranslateElementInit = () => {
-      if (translateRef.current && !translateRef.current.hasChildNodes()) {
+    const addScript = () => {
+      if (window.googleTranslateElementInit) return;
+
+      window.googleTranslateElementInit = function () {
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "en,hi,ur,ar",
+            includedLanguages: "en,hi,ur",
             layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
-          translateRef.current.id
+          "google_translate_element"
         );
-      }
-    };
+      };
 
-    // Only add script once
-    if (!document.getElementById("google-translate-script")) {
       const script = document.createElement("script");
-      script.id = "google-translate-script";
       script.src =
         "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
-    }
+    };
+
+    // ⏳ delay important hai
+    setTimeout(addScript, 1000);
   }, []);
 
-  return (
-    <div
-      id="google_translate_element"
-      ref={translateRef}
-      className="z-[9999] text-sm"
-    />
-  );
+  return <div className="w-full h-full"></div>;
 };
 
 export default Translator;

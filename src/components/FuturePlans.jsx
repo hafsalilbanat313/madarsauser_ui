@@ -11,9 +11,9 @@ const FuturePlans = () => {
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">Future Plans</h2>
           <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
             <strong>Educational Building Project – Update February 2020</strong><br/><br/>
-            Jamia Hafsa Lil Banat serves the full educational, residential, clothing, medical and catering needs of almost 2100 students. It costs around £390,000 annually and relies solely on donations.<br/><br/>
-            In 2018–19, 280 students completed the Aalima course, 55 completed Deeniyat, and 2 completed Hifz. Other lessons included IT, sewing, English, hygiene, and food preparation.<br/><br/>
-            In 2019–20, 1210 applications were received for under 500 places from 15 Indian states. A new online admissions system was implemented.<br/><br/>
+            Jamia Hafsa Lil Banat serves the full educational, residential, clothing, medical and catering needs of almost 2100 students. It costs around **** annually and relies solely on donations.<br/><br/>
+           In 2024-25 : 280 students completed the alima course 55 completed deeniyat. And 15  completed Hifz.etc<br/><br/>
+            In 2025-26, 1210 applications were received for under 500 places from 15 Indian states. A new online admissions system was implemented.<br/><br/>
             Efficiency improvements since 2017 helped reduce costs and improve student services.<br/><br/>
             <strong>Project Rationale</strong><br/>
             One residential building is in serious disrepair. There is overcrowding with up to 25 students per room, leading to health concerns.<br/><br/>

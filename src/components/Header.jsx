@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { Link } from "react-router-dom";
 import NavItems from "./NavItems";
 import Translator from "./Translator";
