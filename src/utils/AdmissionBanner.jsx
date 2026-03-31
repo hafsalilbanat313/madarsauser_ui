@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const starPositions = [
   { top: "8%", left: "5%", size: 6, delay: 0 },
@@ -12,6 +13,7 @@ const starPositions = [
 export default function AdmissionBanner() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 200);
@@ -124,25 +126,12 @@ export default function AdmissionBanner() {
           </div>
 
           {/* CTA */}
-          <div className="flex gap-3 items-center">
-            <button
-              onClick={() =>
-                window.open("https://jamiahafsalilbanat.com", "_blank")
-              }
-              className="flex-1 bg-yellow-500 text-blue-900 py-2 text-xs font-bold uppercase tracking-widest hover:brightness-110"
-            >
-              Apply Now
-            </button>
-
-            <a
-              href="https://jamiahafsalilbanat.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-yellow-400"
-            >
-              Website
-            </a>
-          </div>
+         <button
+  onClick={() => navigate("/signup")}
+  className="flex-1 bg-yellow-500 text-blue-900 py-2 px-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:brightness-110"
+>
+  Apply Now
+</button>
         </div>
 
         {/* Bottom Glow */}

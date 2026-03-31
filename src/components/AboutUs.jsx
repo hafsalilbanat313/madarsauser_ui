@@ -4,12 +4,12 @@ const AboutUs = () => {
   const navLinks = [
     { name: "Jamia Hafsa-Lil-Banat", path: "/jamiahafsalilbanat" },
     { name: "About Us", path: "/aboutus" },
-    { name: "The Jamiah Trust", path: "/jamiahtrust" },
+    { name: "The Jamia Trust", path: "/jamiahtrust" },
     { name: "Board of Trustees", path: "/boardoftrustees" },
     { name: "Message From Mohtamim", path: "/mohatmeem" },
-    { name: "Establishment of Jamiah", path: "/establishment" },
+    { name: "Establishment of Jamia", path: "/establishment" },
     { name: "Important Contacts", path: "/contacts" },
-    { name: "Guests at Jamiah (Khususi Mehman)", path: "/guests" },
+    { name: "Guests at Jamia (Khususi Mehman)", path: "/guests" },
   ];
 
   return (
@@ -49,7 +49,7 @@ const AboutUs = () => {
           <p className="text-gray-800 text-justify leading-relaxed mb-4">
             Through the Grace of Almighty Allah,Jamia Hafsa-Lil-Banat has provided a unique
             educational and pastoral service to the female Muslim Ummah since its establishment
-            in 1993. The principal aim of Jamia Hafsa-Lil-Banat is to provide an understanding of the
+            in  2018. The principal aim of Jamia Hafsa-Lil-Banat is to provide an understanding of the
             Holy Qur’an and Ahadeeth to young female Muslims and guide them in developing a
             positive moral character. Thus enabling them to be exemplary mothers who can establish
             Deen in their homes and family.

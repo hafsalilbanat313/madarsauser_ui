@@ -76,7 +76,7 @@ const Welcome = () => {
             </p>
 
             <p className="mt-3 font-semibold text-black">
-              — Hazrat Qari Waseem Sahab
+              — Hazrat Qari Waseem Qasmi 
             </p>
             <p className="text-sm text-gray-600">
               Founder & Mohtamim

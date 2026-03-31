@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
 const siblingLinks = [
-  { label: "Jamiah Banat Manubar", path: "/jamiahbanatmanubar" },
+  { label: "Jamia Banat Manubar", path: "/jamiahbanatmanubar" },
   { label: "About Us", path: "/aboutus" },
-  { label: "The Jamiah Trust", path: "/jamiahtrust" },
+  { label: "The Jamia Trust", path: "/jamiahtrust" },
   { label: "Board of Trustees", path: "/boardoftrustees" },
   { label: "Message From Mohtamim", path: "/messagefrommohtamim" },
-  { label: "Establishment of Jamiah", path: "/establishment" },
+  { label: "Establishment of Jamia", path: "/establishment" },
   { label: "Important Contacts", path: "/contacts" },
-  { label: "Guest at Jamiah Manubar", path: "/guests" },
+  { label: "Guest at Jamia Manubar", path: "/guests" },
 ];
 
 const MessageFromMohatamim = () => {
@@ -55,7 +55,7 @@ const MessageFromMohatamim = () => {
               these honourable and beloved daughters of the Muslim Ummah.
             </p>
             <p>
-              Hence, in a relatively short period of 25 years since its
+              Hence, in a relatively short period of 8 years (2018-2025) since its
               inception, the educational and construction development and
               progress of  Jamia Hafsa-Lil-Banat is transparent to all.
             </p>

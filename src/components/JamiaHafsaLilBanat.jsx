@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const siblingLinks = [
   { label: " Jamia Hafsa-Lil-Banat", link: "/jamiahafsalilbanat" },
   { label: "About Us", link: "/aboutus" },
-  { label: "The Jamiah Trust", link: "/jamiahtrust" },
+  { label: "The Jamia Trust", link: "/jamiahtrust" },
   { label: "Board of Trustees", link: "/boardoftrustees" },
   { label: "Message From Mohtamim", link: "/mohatmeem" },
-  { label: "Establishment of Jamiah", link: "/establishment" },
+  { label: "Establishment of Jamia", link: "/establishment" },
   { label: "Important Contacts", link: "/contacts" },
-  { label: "Guest at Jamiah Manubar (Khususi Mehman)", link: "/guests" },
+  { label: "Guest at Jamia banat Ratupura (HPU)", link: "/guests" },
 ];
 
 const JamiaHafsaLilBanat = () => {
@@ -39,10 +39,10 @@ const JamiaHafsaLilBanat = () => {
             JAMIA HAFSA-LIL-BANAT (RATUPURA)
           </h1>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
-            is a highly established Institute for Girls based in UTTAR PRADESH, INDIA.
+            is a highly established Institute for Girls based in Hapur, UTTAR PRADESH, INDIA.
           </p>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
-            Through the Grace of Almighty Allah, Jamia Hafsa-Lil-Banat has provided a unique educational and pastoral service to the female Muslim Ummah since its establishment in 1993. The principal aim of  Jamia Hafsa-Lil-Banat is to provide an understanding of the Holy Qura'an and Ahadeeth to young female Muslims and guide them in developing a positive moral character. Thus enabling them to be exemplary mothers who can establish Deen in their homes and family.
+            Through the Grace of Almighty Allah, Jamia Hafsa-Lil-Banat has provided a unique educational and pastoral service to the female Muslim Ummah since its establishment in 2018. The principal aim of  Jamia Hafsa-Lil-Banat is to provide an understanding of the Holy Qura'an and Ahadeeth to young female Muslims and guide them in developing a positive moral character. Thus enabling them to be exemplary mothers who can establish Deen in their homes and family.
           </p>
           <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
              Jamia Hafsa-Lil-Banat depends entirely upon the generous support of brother and sisters in Islam. Allah Subhanahu Wa ta'ala declares in the Holy Quraa'an:

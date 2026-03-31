@@ -128,8 +128,8 @@ export default function SignupPage() {
       <div className="w-full max-w-lg mt-20">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
 
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-            Create your account
+          <h2 className="text-xl md:text-3xl font-bold text-center mb-4">
+             Create your account
           </h2>
 
           {error && (

@@ -26,7 +26,7 @@ const DonationAppeal = () => {
         <div className="bg-white/60 backdrop-blur-md border border-white/30 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-blue-900 mb-4">Donation Appeal</h2>
           <p className="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line" style={{fontFamily:"Poppins"}}>
-            Our students are often greatly impoverished and come from family background where there is no real knowledge of Deen.  Jamia Hafsa-Lil-Banat has an annual expenditure of around approximate £ ******** GBP i.e. * to * Million Rand (i.e.) INR ** to **. This funds the cost of education, clothing, feeding, accommodation, Medical also and transport for over 2100 students who cannot afford to pay for their courses.
+            Our students are often greatly impoverished and come from family background where there is no real knowledge of Deen.  Jamia Hafsa-Lil-Banat has an annual expenditure of around approximate £ ******** GBP i.e. * to * Million Rand (i.e.) INR ** to **. This funds the cost of education, clothing, feeding, accommodation, Medical also and transport for over 500 students who cannot afford to pay for their courses.
 
 As you can see,  Jamia Hafsa-Lil-Banat is a large institute with many students, has no regular income and depends solely upon the mercy of Almighty Allah and the generous donations of Muslim brothers and sisters.
 
@@ -39,7 +39,7 @@ I hope that you will recognize this unique appeal of  Jamia Hafsa-Lil-Banat, the
 May Allah Subhanahu Wa Ta’ala reward your generosity and reward your support in this life and the Hereafter….. Ameen.
           </p>
           <Link
-            to="/bank-details"
+            to="/bankdetails"
             className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow"
           style={{fontFamily:"Poppins"}}>
             Click: Bank Detail

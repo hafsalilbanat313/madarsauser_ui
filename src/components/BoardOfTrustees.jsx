@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const BoardOfTrustees = () => {
   const navLinks = [
-    { name: "Jamiah Banat Manubar", path: "/jamiahbanatmanubar" },
+    { name: "Jamia Banat Manubar", path: "/jamiahbanatmanubar" },
     { name: "About Us", path: "/aboutus" },
-    { name: "The Jamiah Trust", path: "/jamiahtrust" },
+    { name: "The Jamia Trust", path: "/jamiahtrust" },
     { name: "Board of Trustees", path: "/boardoftrustees" },
     { name: "Message From Mohtamim", path: "/mohatmeem" },
-    { name: "Establishment of Jamiah", path: "/establishment" },
+    { name: "Establishment of Jamia", path: "/establishment" },
     { name: "Important Contacts", path: "/contacts" },
-    { name: "Guests at Jamiah (Khususi Mehman)", path: "/guests" },
+    { name: "Guests at Jamia banat Ratupura (HPU)", path: "/guests" },
   ];
 
   return (
@@ -37,7 +37,7 @@ const BoardOfTrustees = () => {
           {/* Founder */}
           <h2 className="text-2xl font-bold text-blue-900 mb-6">Founder</h2>
           <div className="bg-white/70 rounded-lg shadow p-4 text-center text-blue-800 font-semibold text-lg mb-8">
-            HAZRAT QARI WASEEM AKRAM SAHAB (RATUPURA)
+            HAZRAT QARI WASEEM QASMI (RATUPURA)
           </div>
 
           {/* Trustees */}
@@ -92,7 +92,7 @@ const BoardOfTrustees = () => {
                 <tr className="hover:bg-blue-50 transition duration-200">
                   <td className="py-2 px-4 border">1</td>
                   <td className="py-2 px-4 border">
-                    HAZRAT QARI WASEEM AKRAM SAHAB (RATUPURA)
+                    HAZRAT QARI WASEEM QASMI (RATUPURA)
                   </td>
                   <td className="py-2 px-4 border">ADMINISTRATOR (MOHTMIM)</td>
                 </tr>
