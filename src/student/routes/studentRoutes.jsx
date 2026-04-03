@@ -7,6 +7,7 @@ import  SubmittedForm  from "../pages/SubmittedForm";
 import  StudentResults  from "../pages/Results";
 // import  StudentNotices  from "../pages/Notices";
 import { StudentProtectedRoute } from "../../utils/StudentProtectedRoute";
+import StudentFee from "../pages/StudentFee";
  
 
 export const studentRoutes = (
@@ -23,6 +24,7 @@ export const studentRoutes = (
     <Route path="admission-form" element={<AdmissionForm />} />
     <Route path="submitted-form" element={<SubmittedForm />} />
     <Route path="results" element={<StudentResults />} />
+    <Route path="/student/fee" element={<StudentFee />} />
     {/* <Route path="notices" element={<StudentNotices />} /> */}
   </Route>
 );

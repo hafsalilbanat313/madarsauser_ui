@@ -16,19 +16,20 @@ export default function StudentSidebar({ sidebarOpen, setSidebarOpen }) {
     navigate("/login");
   };
 
-  const menu = [
-    { name: "Dashboard", path: "/student/dashboard", icon: <FaHome /> },
-    { name: "Profile", path: "/student/profile", icon: <FaUser /> },
-    { name: "Admission Form", path: "/student/admission-form", icon: <FaFileAlt /> },
-    { name: "Submitted Form", path: "/student/submitted-form", icon: <FaCheckCircle /> },
-    { name: "Results", path: "/student/results", icon: <FaChartBar /> },
-  ];
+ const menu = [
+  { name: "Dashboard", path: "/student/dashboard", icon: <FaHome /> },
+  { name: "Profile", path: "/student/profile", icon: <FaUser /> },
+  { name: "Admission Form", path: "/student/admission-form", icon: <FaFileAlt /> },
+  { name: "Submitted Form", path: "/student/submitted-form", icon: <FaCheckCircle /> },
+  { name: "Fee Payment", path: "/student/fee", icon: <FaFileAlt /> }, // 🔥 add
+  { name: "Results", path: "/student/results", icon: <FaChartBar /> },
+];  
 
   return (
     <>
       {/* ✅ Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-64 bg-white shadow-lg overflow-y-auto transform transition-transform duration-300
+        className={`fixed top-0 left-0 z-5 h-full w-64 bg-white shadow-lg overflow-y-auto transform transition-transform duration-300
         ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         md:translate-x-0 md:static md:block`}
       >

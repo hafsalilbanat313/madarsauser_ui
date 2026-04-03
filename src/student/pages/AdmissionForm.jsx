@@ -163,7 +163,7 @@ export default function AdmissionForm() {
       formData.append("studentName", form.studentName);
       formData.append("dob", form.dob);
       formData.append("gender", form.gender);
-      formData.append("classApplied", form.classApplied);
+      formData.append("classApplyingFor", form.classApplied);  
 
       formData.append("fatherName", form.fatherName);
       formData.append("motherName", form.motherName);
@@ -179,13 +179,13 @@ export default function AdmissionForm() {
       formData.append("visitorName", form.visitorName);
       formData.append("visitorRelation", form.visitorRelation);
 
-      formData.append("phone", form.phone);
-      formData.append("whatsapp", form.whatsapp);
-      formData.append("email", form.email);
+      formData.append("phoneNumber", form.phone);  
+      formData.append("whatsappNumber", form.whatsapp);  
+      formData.append("emailAddress", form.email);  
 
       formData.append("hostelRequired", form.hostelRequired ? "true" : "false");
 
-      // 🔴 YAHIN lagao (IMPORTANT)
+      
       formData.append("declarationLocation", form.declarationLocation);
       formData.append("declarationAccepted", form.declarationAccepted);
 
@@ -215,33 +215,32 @@ export default function AdmissionForm() {
       setLoading(false);
     }
   };
-  useEffect(() => {
-    const checkStatus = async () => {
-      try {
-        const res = await axios.get(
-          "https://madarsa-backend-pro.onrender.com/api/student-form/my-form",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
+useEffect(() => {
+  const checkStatus = async () => {
+    try {
+      const res = await axios.get(
+        "https://madarsa-backend-pro.onrender.com/api/student-form/my-form",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        );
-
-        if (res.data?.hasFor) {
-          setIsSubmitted(true);
-        } else {
-          setIsSubmitted(false);
         }
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setChecking(false);
-      }
-    };
+      );
 
-    checkStatus();
-  }, []);
+      console.log(res.data);
 
+      // ✅ direct use hasForm
+      setIsSubmitted(res.data?.hasForm === true);
+
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setChecking(false);
+    }
+  };
+
+  checkStatus();
+}, []);
   /* =====================================================
      UI
   ===================================================== */
@@ -292,57 +291,56 @@ export default function AdmissionForm() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
-  
-  {/* LEFT SIDE (Title) */}
-  <div className="text-center md:text-left">
-    <h1
-      className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
-      style={{ fontFamily: "Poppins" }}
-    >
-      Student Admission Form
-    </h1>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+          {/* LEFT SIDE (Title) */}
+          <div className="text-center md:text-left">
+            <h1
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
+              style={{ fontFamily: "Poppins" }}
+            >
+              Student Admission Form
+            </h1>
 
-    <p className="text-gray-600 text-sm md:text-lg">
-      Please fill out all required fields carefully
-    </p>
-  </div>
+            <p className="text-gray-600 text-sm md:text-lg">
+              Please fill out all required fields carefully
+            </p>
+          </div>
 
-  {/* RIGHT SIDE (Hostel Toggle) */}
-  <div className="mt-4 md:mt-0">
-    <p className="text-sm font-semibold text-gray-700 mb-2">
-      Hostel Required?
-    </p>
+          {/* RIGHT SIDE (Hostel Toggle) */}
+          <div className="mt-4 md:mt-0">
+            <p className="text-sm font-semibold text-gray-700 mb-2">
+              Hostel Required?
+            </p>
 
-    <div className="flex gap-2">
-      {/* YES */}
-      <button
-        type="button"
-        onClick={() => setForm({ ...form, hostelRequired: true })}
-        className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-          form.hostelRequired
-            ? "bg-green-600 text-white"
-            : "bg-gray-100 text-gray-700"
-        }`}
-      >
-        Yes
-      </button>
+            <div className="flex gap-2">
+              {/* YES */}
+              <button
+                type="button"
+                onClick={() => setForm({ ...form, hostelRequired: true })}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                  form.hostelRequired
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                Yes
+              </button>
 
-      {/* NO */}
-      <button
-        type="button"
-        onClick={() => setForm({ ...form, hostelRequired: false })}
-        className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-          !form.hostelRequired
-            ? "bg-red-500 text-white"
-            : "bg-gray-100 text-gray-700"
-        }`}
-      >
-        No
-      </button>
-    </div>
-  </div>
-</div>
+              {/* NO */}
+              <button
+                type="button"
+                onClick={() => setForm({ ...form, hostelRequired: false })}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                  !form.hostelRequired
+                    ? "bg-red-500 text-white"
+                    : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
 
         {/* Form Card */}
         <form

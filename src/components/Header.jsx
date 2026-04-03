@@ -44,7 +44,7 @@ const Header = () => {
   useEffect(() => {
     const fetchAnnouncement = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/announcement");
+        const res = await fetch("https://madarsa-backend-pro.onrender.com/api/announcement");
         const data = await res.json();
 
         if (data.success && data.data) {
@@ -91,7 +91,7 @@ const Header = () => {
             <img
               src="/mylogowoutbg.png"
               alt="Logo"
-              className="h-12 w-10 transition-transform duration-300 hover:scale-[2.5]"
+              className="h-12 w-10 z-10 transition-transform duration-300 hover:scale-[2.5]"
             />
           </div>
 
