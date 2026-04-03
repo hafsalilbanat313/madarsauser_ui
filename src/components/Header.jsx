@@ -66,14 +66,19 @@ const Header = () => {
       {/* Scrolling Notice */}
       <div className="fixed top-0 left-0 w-full z-[100] bg-gradient-to-tr from-blue-900 to-blue-700 text-white font-extrabold py-2 shadow-lg">
         <div className="overflow-hidden whitespace-nowrap">
-          <div className="animate-marquee inline-block pl-[100%] text-sm font-semibold text-white">
-            <span className="bg-red-600 text-yellow-300 rounded-2xl px-2  mr-3">
-              🚀 Important
-            </span>
-            {announcement?.message
-              ? announcement.message
-              : "Welcome to jamia hafsa lil banat"}
-          </div>
+         <button
+  onClick={() => navigate("/signup")}
+  className="animate-marquee inline-block pl-[100%] text-sm font-semibold text-white cursor-pointer"
+>
+  <span className="bg-red-600 text-yellow-300 rounded-2xl px-2 mr-3">
+    🚀 Important
+  </span>
+
+  {announcement?.message
+    ? announcement.message
+    : "Online Admission Form For the session 2026-27 has been started"}
+    <span className="text-red-600">👉Click to Apply</span>
+</button>
         </div>
       </div>
 

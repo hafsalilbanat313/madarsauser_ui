@@ -1,23 +1,34 @@
 import { useNavigate } from "react-router-dom";
 
-export default function StudentHeader() {
+export default function StudentHeader({ setSidebarOpen }) {
   const navigate = useNavigate();
 
-  // const logout = () => {
-  //   localStorage.removeItem("studentToken");
-  //   navigate("/login");
-  // };
-
   return (
-    <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
-      {/* <h1 className="text-lg font-semibold">Student Dashboard</h1> */}
+    <header className="bg-white shadow px-4 md:px-6 py-4 mt-4 flex items-center justify-between">
+      
+      {/* LEFT SIDE */}
+      <div className="flex items-center gap-3">
+        
+        {/* ☰ Menu Button (mobile only) */}
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="md:hidden px-3 py-2 bg-blue-600 text-white rounded"
+        >
+          ☰
+        </button>
 
-      {/* <button
-        onClick={logout}
-        className="flex items-center gap-2 text-red-600 hover:text-red-700 text-sm font-medium"
-      >
-        Logout
-      </button> */}
+        {/* Title */}
+        <h1 className="text-lg md:text-xl font-bold text-blue-700">
+          Admission Section
+        </h1>
+
+      </div>
+
+      {/* RIGHT SIDE (optional future use) */}
+      <div className="flex items-center gap-3">
+        {/* Future: Profile / Logout */}
+      </div>
+
     </header>
   );
 }

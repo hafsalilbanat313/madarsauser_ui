@@ -36,7 +36,7 @@ const AboutUs = () => {
         <div className="flex-1 bg-white/40 backdrop-blur-md rounded-xl shadow border border-white/40 p-6 sm:p-8">
           <img
             src="https://plus.unsplash.com/premium_photo-1677523780036-1b1970552854?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE3fHxpc2xhbWljJTIwYmFieSUyMGdpcmx8ZW58MHx8MHx8fDA%3D"
-            alt="Jamiah Institute"
+            alt="Jamia Institute"
             className="w-full h-64 object-cover rounded-xl mb-6 shadow-lg"
           />
           <h2 className="text-2xl font-bold text-blue-900 mb-4">About Us</h2>
