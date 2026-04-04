@@ -61,7 +61,26 @@ export default function StudentFee() {
     <div className="min-h-screen bg-gray-50 p-6">
 
       {/* ================= DISCLAIMER ================= */}
-      <div className="max-w-6xl mx-auto mb-6 space-y-2">
+      <div className="max-w-6xl mx-auto mb-6 space-y-3">
+
+        {/* 🚨 IMPORTANT NOTICE */}
+        <div className="bg-red-100 border-2 border-red-600 p-4 rounded-lg text-center shadow-md">
+          <h2 className="text-xl md:text-2xl font-extrabold text-red-700">
+            ⚠️ IMPORTANT NOTICE ⚠️
+          </h2>
+
+          <p className="mt-2 text-lg font-bold text-red-800">
+            Admission Form Fee is ₹1000 (Fixed)
+          </p>
+
+          <p className="mt-1 text-sm md:text-base text-red-700 font-semibold">
+            You must pay exactly ₹1000 — not less, not more.
+          </p>
+
+          <p className="mt-2 text-sm md:text-base text-red-700">
+            If the fee is not paid or paid incorrectly, your application will NOT be considered for admission.
+          </p>
+        </div>
 
         <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded text-sm text-red-700">
           ⚠️ Make sure you have submitted the admission application form first.
