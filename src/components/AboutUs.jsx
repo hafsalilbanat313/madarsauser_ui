@@ -43,7 +43,7 @@ const AboutUs = () => {
 
           <p className="text-gray-800 text-justify leading-relaxed mb-4">
             <strong>Jamia Hafsa-Lil-Banat (RATUPURA)</strong> is a highly established
-            Institute for Girls based in Gujarat, INDIA.
+            Institute for Girls based in Ratupura,Hapur-U.P.
           </p>
 
           <p className="text-gray-800 text-justify leading-relaxed mb-4">
